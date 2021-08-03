@@ -1,0 +1,12 @@
+[main] INFO  com.yash.logging.LogDemo  - Hello people
+[main] INFO  com.yash.logging.LogDemo  - we are in logger info mode
+[main] WARN  com.yash.logging.LogDemo  - Warning msg
+[main] ERROR com.yash.logging.LogDemo  - Error msg
+[main] FATAL com.yash.logging.LogDemo  - Fatal msg
+[main] DEBUG com.yash.logging.LogDemo  - Debugg msg
+[main] INFO  com.yash.logging.LogDemo  - Hello people
+[main] INFO  com.yash.logging.LogDemo  - we are in logger info mode
+[main] WARN  com.yash.logging.LogDemo  - Warning msg
+[main] ERROR com.yash.logging.LogDemo  - Error msg
+[main] FATAL com.yash.logging.LogDemo  - Fatal msg
+[main] DEBUG com.yash.logging.LogDemo  - Debugg msg
