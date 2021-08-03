@@ -1,4 +1,4 @@
-package com.yash.arraydemo;
+package com.yash.arraydemo.classassignments;
 
 import static org.junit.Assert.assertTrue;
 
