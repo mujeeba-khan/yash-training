@@ -8,11 +8,12 @@ import com.yash.shoppingapp.model.Product;
 
 class ProductList extends Thread
 {
-	synchronized static void getListOfProducts()
-	{
-		System.out.println("List of products..\n");
+	
+	synchronized void getListOfProducts()
+	{/*
+		System.out.println("List of products..");
 		List<Product> list1 = AddProducts.addProducts();
-		System.out.println(list1);
+		System.out.println(list1); */
 	}
 	
 	public void run()
@@ -24,7 +25,7 @@ class ProductList extends Thread
 class AddProducts extends Thread
 {
 	
-	synchronized static List<Product> addProducts()
+	synchronized void addProducts()
 	{
 		//System.out.println("Products added..\n");
 		List<Product> list = new ArrayList<Product>();
@@ -34,8 +35,8 @@ class AddProducts extends Thread
 		list.add(new Product(32,"P4",8,376.3));
 		list.add(new Product(9,"P5",1,445.2));
 		
-		return list;
-	
+		System.out.println("List of products..");
+		System.out.println(list);
 	}
 	
 	public void run()
@@ -46,10 +47,10 @@ class AddProducts extends Thread
 
 class VerifyProductQuantity extends Thread
 {
-	synchronized public static void verifyProductQuantity()
+	synchronized void verifyProductQuantity()
 	{
 		
-		System.out.println("Total type of products in your cart are: "+AddProducts.addProducts().size()+"\n"); 
+		System.out.println("\nTotal type of products in your cart are: 5\n"); 
 		//System.out.println("Want to continue shopping ? ");
 	}
 	
@@ -61,44 +62,30 @@ class VerifyProductQuantity extends Thread
 
 class Payment extends Thread
 {
-	static double amount=0;
-	synchronized static void doPayment()
-	{
-		
-		List<Product> list = AddProducts.addProducts();
-		Product pro[] = list.toArray(new Product[list.size()]);
-		for(int i=0;i<pro.length;i++)
-		{
-			amount += pro[i].getProduct_Quantity()*pro[i].getProduct_Price();
-		}
-		
+	static double amount=22983.1;
+	synchronized void doPayment()
+	{		
 		System.out.println("Thanks for shopping with us...");
 		System.out.println("Your total amount : "+amount+"\nNow you will be directed to the digital payment link\n");
 		
-	}
-	
-	synchronized static double confirmPayment()
-	{
-		return amount;
 	}
 	
 	public void run()
 	{
 		doPayment();
 		System.out.println("Your payment has been successful...Hope to see you soon..Have a Good day\n");
-		confirmPayment(); 
 	}
 }
 
 class Receipt extends Thread
 {
-	synchronized static void printReceipt()
+	synchronized void printReceipt()
 	{
 		
-		System.out.println("-------ABC Bazaar--------");
+		System.out.println("-------ABC Bazaar Receipt--------");
 		//ProductList.getListOfProducts();
-		System.out.println("Total products: "+AddProducts.addProducts().size());
-		System.out.println("Total amount : "+Payment.amount);
+		System.out.println("Total products: 5");
+		System.out.println("Total amount : 22983.1");
 		System.out.println("Payment mode: Online payment");
 		System.out.print("Shopping date: ");
 		System.out.println(java.time.LocalDate.now());  
@@ -127,7 +114,11 @@ public class ProductAppSynch
 		Receipt t5 = new Receipt();
 		t5.start();
 		
-
+		
+		
+		
+		
+		
 	}
 
 }

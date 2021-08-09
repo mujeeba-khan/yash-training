@@ -2,6 +2,11 @@ package com.yash.shoppingapp.main;
 
 import com.yash.shoppingapp.service.ProductService;
 
+/*
+ * executing product single thread class
+ * all methods were written in single class(ProductService) only
+ * */
+
 class Thread1 extends Thread
 {
 	ProductService ps;

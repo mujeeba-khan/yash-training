@@ -33,7 +33,7 @@ public class Payment extends Thread
 		}
 	}
 	
-	synchronized double confirmPayment()
+	 double confirmPayment()
 	{
 		return amount;
 	}

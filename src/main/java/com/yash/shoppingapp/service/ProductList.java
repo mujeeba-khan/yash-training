@@ -7,8 +7,8 @@ import com.yash.shoppingapp.model.Product;
 public class ProductList extends Thread
 {
 
-	/*
-	synchronized void getListOfProducts()
+	
+	void getListOfProducts()
 	{
 		AddProducts ap = new AddProducts();
 		System.out.println("List of products..\n");
@@ -20,9 +20,10 @@ public class ProductList extends Thread
 	{
 		getListOfProducts();
 	}
-	*/
 	
-	synchronized void getListOfProducts()
+	
+	/*
+	void getListOfProducts()
 	{
 		List<Product> list = new ArrayList<Product>();
 		list.add(new Product(12,"P1",5,230));
@@ -38,4 +39,5 @@ public class ProductList extends Thread
 	{
 		getListOfProducts();
 	}
+	*/
 }

@@ -5,6 +5,9 @@ import java.util.List;
 
 
 import com.yash.shoppingapp.model.Product;
+/*
+ * multiple methods in a class where the whole class will act as a single thread..
+ * */
 
 public class ProductService 
 {
