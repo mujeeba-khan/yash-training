@@ -1,0 +1,61 @@
+---------------------MySQL Assignment------------------------
+
+
+-> create table emplassign(id int, name varchar(20), designation varchar(20), salary double, address varchar(15), department varchar(20));
+
+-> SELECT * from emplassign;
+
+-> Write a mysql statement to find the employee salary is greater than 300000
+   SELECT * FROM emplassign WHERE salary > 300000;
+
+-> Write mysql statement to show distinct departments
+   SELECT DISTINCT department FROM emplassign;
+
+-> Write mysql statement to get records of employees working in IT,Testing department.
+   SELECT * FROM emplassign WHERE department IN ('IT','Testing');
+
+-> Write mysql statements to get all departments in descending order
+   SELECT * FROM emplassign ORDER BY department DESC;
+
+-> Write a mysql statement to create a table employee which already exists
+   SELECT NAME FROM newemployee WHERE EXISTS (SELECT * FROM employee WHERE id>4); 
+   DROP TABLE IF EXISTS employee;
+
+-> Write a mysql statement to find the Highest and lowest paid salary employee full record
+   SELECT * FROM emplassign WHERE salary IN (SELECT MAX(salary) FROM emplassign)
+   SELECT * FROM emplassign WHERE salary IN (SELECT MIN(salary) FROM emplassign)
+
+-> Write a mysql statement to find all the employees that have worked in at least 2 departments. Show their name ,departments they work in. Display all results in ascending 
+order.
+   SELECT NAME, department FROM newemployee WHERE department IN ('Accounts', 'IT') ORDER BY id;
+   
+-> Write a mysql statement to create new database,use newly created database,create table and check the list of tables and drop the table
+   CREATE DATABASE assignment;   
+   USE assignment;
+   CREATE TABLE student(id INT, NAME VARCHAR(20), standard VARCHAR(3), address VARCHAR(20));
+   SHOW TABLES;
+   DROP TABLE student;
+
+-> Write a mysql statement to fetch employee records whose designation is manager and salary is between 200000 to 300000.
+   SELECT * FROM emplassign WHERE designation = 'Manager' AND salary BETWEEN 200000 AND 300000;
+
+-> Write a mysql statement to update the salary by 20000 in Accounts department.
+   UPDATE emplassign SET salary = 20000 WHERE department = 'Accounts';
+
+-> Write a mysql statement to alter table by adding new column as doj(date of joining) into the employee table
+   ALTER TABLE emplassign ADD(doj DATE);
+
+-> Write a mysql statement to rename the employee table.
+   ALTER TABLE emplassign RENAME TO newemployee;
+
+-> Write a mysql statement to get names which are NOT NULL.
+   SELECT NAME FROM newemployee WHERE NAME IS NOT NULL;
+
+-> Write a mysql statement to get null doj values
+   SELECT * FROM newemployee WHERE doj IS NULL;
+
+-> Write a mysql statement to get salary between 100000 to 20000 in Accounts and IT departments
+   SELECT * FROM newemployee WHERE salary BETWEEN (100000 AND 200000) AND department IN('IT', 'Accounts');
+
+-> Write a mysql statement to show the use of ANY
+   SELECT NAME FROM newemployee WHERE id > ANY (SELECT id FROM employee);  

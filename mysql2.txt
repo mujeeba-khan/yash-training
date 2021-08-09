@@ -1,0 +1,56 @@
+----------------Mysql commands--------------------
+
+//delete all the records in one go, cant be used with where clause
+-- truncate table newemployee;
+
+//sub query example
+-- select * from employee where salary in(select min(salary) from employee) limit 1;
+-- select * from employee where address in(select address from employee where address='India'); 
+
+//renaming column name
+-- alter table product change column id to p_id;
+
+//deleting the table along with its structure
+-- drop table project1;
+
+//creating a table with foreign key with on delete cascade clause
+CREATE TABLE proj(id INT PRIMARY KEY, NAME VARCHAR(20), emp_id INT, FOREIGN KEY(emp_id) REFERENCES employee(id) ON DELETE CASCADE);
+-- delete from employee where id=12;
+-- select * from employee;
+//here it will automatically delete the record from project table which had the corresponding employee id which got deleted from employee table
+-- select * from proj;
+
+//creating column aliases
+-- select concat_ws('#',name,id)'full_name' from employee order by full_name;
+-- select name as emp_name from employee where id >8;
+
+//creating view
+-- create view emp as select * from employee where department in('Accounts','IT');
+-- select * from emp;
+
+//locking and unlocking tables for read and write operation respectively
+
+If a thread obtains a READ lock on a table, that thread (and all other threads) can only read from the table. 
+If a thread obtains a WRITE lock on a table, only the thread holding the lock can READ from or WRITE to the table. 
+Other threads are blocked.
+
+-- lock table employee read;
+-- select * from employee;
+-- unlock tables;
+-- lock table project write;
+-- insert into project(name,emp_id) values('TMS',7);
+-- unlock tables;
+
+//use of aliases in join query
+-- select e.id,e.name,p.name as p_name from employee as e inner join project as p on p.employee_id=e.id;
+
+//sequence and indexes
+-- sequence: auto_increment
+
+-- show indexes from project;
++---------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table   | Non_unique | Key_name    | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| project |          0 | PRIMARY     |            1 | id          | A         |           3 |     NULL | NULL   |      | BTREE      |         |               |
+| project |          1 | employee_id |            1 | employee_id | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
