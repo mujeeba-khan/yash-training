@@ -1,14 +1,18 @@
 package com.yash.ems.model;
+/*
+ *  POJO Employee class 
+ *  containing instance variables, constructors
+ *  getters and toString() method
+ */
 
 public class Employee 
 {
-	long id;
-	String name;
-	double salary;
-	String department;
-	String designation;
-	String address;
-	
+	private long id;
+	private String name;
+	private double salary;
+	private String department;
+	private String designation;
+	private String address;
 	
 	public Employee() {
 		super();
@@ -59,7 +63,7 @@ public class Employee
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", department=" + department
-				+ ", designation=" + designation + ", address=" + address + "]";
+				+ ", designation=" + designation + ", address=" + address + "]\n";
 	}
 	
 	

@@ -1,6 +1,13 @@
 package com.yash.ems.main;
 
+/*
+ * EmployeeApp : main class to execute Employee Management System
+ * where user will get the choices to go ahead
+ */
+
 import java.util.Scanner;
+
+import com.yash.ems.exception.*;
 import com.yash.ems.serviceimpl.EmployeeServiceImplementation;
 
 public class EmployeeApp {
@@ -10,50 +17,89 @@ public class EmployeeApp {
 		EmployeeServiceImplementation esi = new EmployeeServiceImplementation();
 		Scanner sc =  new Scanner(System.in);
 		
-		//do
+		
 		while(true)
 		{
 			System.out.println("\n-----Welcome to EMS-------\n");
 			System.out.println(
 					 "Press 1 to add an employee record\n"
-					+"Press 2 to get the list of employees\n"
+					+"Press 2 to get the list of all employees\n"
 					+"Press 3 to search an employee by id\n"
-					+"Press 4 to search an employee by department\n"
+					+"Press 4 to get employees by department\n"
 					+"Press 5 to update an employee record\n"
 					+"Press 6 to remove an employee record\n"
-					+"Press 7 to exit");
+					+"Press 7 to get all departments\n"
+					+"Press 8 to get highest paid employee\n"
+					+"Press 9 to get employee by name and salary\n"
+					+"Press 10 to get limited records\n"
+					+"Press 11 to exit");
 		
 			int choice = sc.nextInt();
 
-		
 			switch(choice)
 			{
 				case 1:
 					esi.addEmployee();
 					break;
+					
 				case 2:
 					esi.getEmployeeList();
 					break;
+					
 				case 3:
+				try
+				{
 					esi.searchEmployeeById();
+				} catch (EmployeeByIdNotFoundException e)
+				{
+					e.printStackTrace();
+				}
 					break;
+					
 				case 4:
-					esi.searchEmployeeByDepartment();
+					esi.getEmployeesByDepartment();
+				
 					break;
+					
 				case 5:
 					esi.updateEmployee();
 					break;
+					
 				case 6: 
 					esi.removeEmployee();
 					break;
+					
 				case 7: 
+					esi.getAllDepartments();
+					break;
+					
+				case 8: 
+					esi.getHighestPaidEmployee();
+					break;
+					
+				case 9: 
+				try 
+				{
+					esi.getEmployeeByNameAndSalary();
+				} catch(EmployeeByNameAndSalaryNotFoundException e) 
+				{	
+					e.printStackTrace();
+				}
+					break;
+					
+				case 10:
+					esi.getLimitedRecords();
+					break;
+					
+				case 11: 
 					System.exit(0);
+					
 				default:
 					System.out.println("Wrong choice entered...");
 					break;
 			}
 		}
-		//while(true);
+		
 	}
 
 }
