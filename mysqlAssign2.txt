@@ -1,0 +1,123 @@
+---------------------------MySQL Assignment 2---------------------------
+Use below structure for queries:
+
+
+-- create table employees(employeeNumber int primary key, lastName varchar(50), firstName varchar(50), extension varchar(10), email varchar(100), 
+officeCode varchar(10), reportsTo int, jobTitle varchar(50));
+
+-- create table offices(officeCode int primary key, city varchar(15), phone varchar(15), addressLine1 varchar(50), addressLine2 varchar(50), 
+state varchar(15), country varchar(20), postalCode varchar(10), territory varchar(20));
+
+-- create table customers(customerNumber int primary key, customerName varchar(20), contactLastName varchar(14), conatctFirstName varchar(14), 
+city varchar(15), phone varchar(15), addressLine1 varchar(50), addressLine2 varchar(50), state varchar(15), country varchar(20), postalCode varchar(10),
+salesRepEmployeeNumber varchar(10), creditLimit double);
+
+--  create table orders(orderNumber int primary key, orderDate date, requiredDate date, shippedDate date, status varchar(10), 
+comments varchar(100), customerNumber int);
+
+Q1: Show the structure of the employees table. Create a query to display the lastName, employeenumber, extension, officecode, reporting manager id 
+and job title for each employee with employee number appearing first. 
+
+-- DESC employees;
+-- select employeeNumber,lastName,extension,officeCode,reportsTo,jobTitle from employees;
+
+Q2: Create unique JobTitles from employees table.
+-- select distinct jobTitle from employees;
+
+Q3: ReCreate the query for question 1 and column name must be appeared as Employee#, Extn, Office_Code, Manager ID and Job Title for each 
+employee and redisplay the data.
+-- alter table employees change employeeNumber Employee_Id int,
+-- change extension Extn varchar(10),
+-- change officeCode Office_Code varchar(10),
+-- change reportsTo Manager_Id int(11),
+-- change jobTitle Job_Title varchar(50);
+-- select * from employees;
+
+Q4: show the output from employees table as below :
++-------------------+
+| Employee_Name     |
++-------------------+
+| Diane,Murphy      |
+| Mary,Patterson    |
+| Jeff,Firrelli     |
+| William,Patterson |
+| Gerard,Bondur     |
+| Anthony,Bow       |
+| Leslie,Jennings   |
+| Leslie,Thompson   |
+| Julie,Firrelli    |
+| Steve,Patterson   |
+| Foon Yue,Tseng    |
+| George,Vanauf     |
+| Loui,Bondur       |
+| Gerard,Hernandez  |
++-------------------+
+-- select concat_ws(',',firstName,lastName) Employee_Name from employees;
+
+Q5: Create a query to display the Emp# EmplyeeName, Mgr # and ManagerName . In this query all the employees must be displayed with reporting manager.
+-- SELECT CONCAT('Emp#',CONCAT_WS(' ',firstName,lastName),', Mgr#',Manager_Id) Employee_Name_with_Reporting_Manager FROM employees;
+
+
+Q6: Create a query to display the customer name, ContactPerson, and Credit Limit of all those employees who falls in credit limit of between 85100 to 100600.
+-- select customerName, concat(contactFirstName,",",contactLastName)'Contact_Person', creditLimit from customers where creditLimit between 85100 and 100600;
+
+Q7: Create a query to display firstname, lastname, office code of employees who are either in office code 4 or 6 and data should be displayed alphabetically based on firstname.
+-- Select firstname,lastName,Office_Code from employees where Office_Code in(4,6) order by firstName;
+
+Q8: display the firstname, last name of employees who are not reporting to any manager.
+-- select firstname,lastname from employees where Manager_Id is null;
+
+
+Q9: Display contactfirstname, contactlastname state and city of customers who live in some state, sort the data in descending order of state and city. 
+-- select contactFirstName, contactlastName, state, city from customers where state is not null order by state desc;
+
+Q10: Display contactlastname of customers where there is a at second position in name. 
+-- select contactLastName from customers where contactLastName like '_a%';
+
+Q11: Display the contactlastname of customers where there is either “g” or “o” available in name.
+-- select contactLastName from customers where contactLastName like '%o%' OR contactLastName like '%g%';
+
+Q12: Display firstname, lastname, officecode and jobtitle of employees whose jobtitle is Sales Rep or Sales Manager and whose office code 
+is not equal to 4, 6 and 7.
+-- select firstName,lastName,Office_Code,Job_Title from employees where Job_title in('Sales Rep','Sales Manager') and Office_Code not in(4,6,7);
+
+Join
+Use Below table structure to solve the following queries. 
+Q1: Display firstname, officeCode and City of each employees, where they are working. 
+-- select employees.firstName, employees.Office_Code, offices.city from employees inner join offices on employees.Office_Code=offices.officeCode;
+
+Q2: Display the total number of employees working in each city.
+-- select count(employees.Employee_Id) as 'Number_of_Employees', offices.city from employees inner join offices on 
+employees.Office_Code=offices.officeCode group by offices.city;
+
+Q3: Display the number of employees working in ”Paris”;
+-- select count(employees.Employee_Id) as 'Number_of_Employees', offices.city from employees inner join offices on 
+employees.Office_Code=offices.officeCode where offices.city='Paris';
+
+Q4: Display total number of employees working in cities in which the second letter of the city is ‘a’;
+-- select count(employees.Employee_Id) as 'Number_of_Employees' from employees inner join offices on 
+employees.Office_Code=offices.officeCode where offices.city like '_a%';
+
+Use below Structure for following queries.
+Q5: Display the customer first name, customer last name, order number, and order date of all those orders where some kind of comment is given 
+against customer order. 
+-- select customers.contactFirstName, customers.contactLastName, orders.orderNumber, orders.orderDate from customers inner join
+orders on customers.customerNumber=orders.customerNumber where orders.comments is not null;
+
+Use below table structure for following queries.
+Q6: Create a query that displays employee’s office code, Employee first name and all the employees 
+who work in the same office code. Give each column an appropriate label.
+-- select Office_Code as employee_office_code, firstName as employee_firstName, count(Employee_Id) as 'employees_in_same_office' 
+from employees group by Office_Code;
+
+ 
+  
+  
+
+
+
+
+
+
+
+ 

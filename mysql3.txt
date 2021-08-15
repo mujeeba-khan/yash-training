@@ -1,0 +1,37 @@
+
+//replace statement
+
+-- create table cities(id int auto_increment primary key, name varchar(20), population long);
+-- alter table cities modify population int;
+-- replace into cities(id,population) values(2,1960631);
+-- replace into cities set name='Hyderabad', population=6809970;
+-- select * from cities;
+-- REPLACE INTO cities(name,population) SELECT name,population FROM cities WHERE id = 1;
+
+//trigger statement
+
+-- delimiter//
+-- create trigger before_proprice 
+-- before insert on customer for each row 
+-- begin
+-- select price from product;
+-- if price > 0 
+-- then
+-- insert into customer(name,product_price) values(new.name,new.product_price);
+-- end if;
+-- end//
+
+
+//Importing data from csv file into employee table
+
+-- LOAD DATA LOCAL INFILE 'C:/ProgramData//MySQL//MySQL Server 5.6//Uploads//docs.csv'
+    -> INTO TABLE employee;
+
+//transactions
+
+SET autocommit = 0;
+START TRANSACTION;
+SELECT @income:= MAX(salary) FROM employee;
+INSERT INTO employee(NAME,contact,salary,designation,department,address) VALUES("John",9871522211,567878,"D65","Testing","Australia");
+INSERT INTO product(NAME,dateOfPurchase,price,quantity,emp_id) VALUES("Laptop","2021-09-12",78877,1,10);
+COMMIT;
