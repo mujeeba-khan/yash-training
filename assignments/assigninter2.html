@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>audio video</title>
+<style>
+	.column {
+	  float: left;
+	  width: 33.33%;
+	  padding: 5px;
+	}
+
+	/* Clear floats after image containers */
+	.row::after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	}
+</style>
+
+</head>
+<body style="background-color:#9fbfdf;">
+<h1>Media Gallery</h1>
+<br> 
+
+<div class="row">
+  <div class="column">
+	<h4>Image</h4>
+	<img src="../images/globe.jpg">
+  </div>
+  <div class="column">
+	<h4>Audio</h4>
+	<audio controls autoplay muted>
+	<source src="../images/sample_audio.mp3" type="audio/mp3">
+	Your browser does not support the audio element.
+	</audio>
+  </div>
+  <div class="column">
+	<h4>Video</h4>
+	<video src="../images/sample_video.mp4" controls>
+	<p>Your browser doesn't support HTML5 video.</p>
+	</video>
+  </div>
+ </div>
+</body>
+</html>
