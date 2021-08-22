@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>
+		Different ways of defining functions
+	</title>
+</head>
+<body>
+
+<input type="button" onclick="sq(12)" value="Square">
+
+<script>
+	document.writeln("Hello people...Welcome to our space..");
+	console.log("Hello Yashians!!");
+	
+	function sq(x) // named function
+	{
+		return x*x;
+		console.log("Square: "+(x*x));
+	}
+	console.log("Square: "+sq(10));
+	
+	var cube = function(x) //anonymous function
+	{
+		return x*x*x;
+	}
+	console.log("Cube: "+cube(10));
+	
+	//function add(sq(x),cube(y))
+	//{
+	//	var a = sq(x)+cube(y);
+	//}
+	
+	//console.log(add(sq(9),cube(10)));
+	
+</script>
+
+</body>
+</html>

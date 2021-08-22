@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		
+		<link rel="stylesheet" href="style.css">
+		
+		<title>
+			Online Room Booking
+		</title>
+	
+	</head>
+	<body>
+	<div id="d1">
+        <h2>Room Booking Form</h2><br>
+        
+        <form name ="booking" style=" width: 300px; margin: 0 auto;">
+    
+			<label>From-date</label> 
+			<input type="date" id="fromdate" name="fromdate" required> <br> <br>
+			
+			<label>To-date</label>
+			<input type="date" id="todate" name="todate" required> <br> <br>
+			
+            <label> Purpose </label>       
+            <input type="text" id="purpose" name="purpose" size="28" required> <br> <br>
+			
+            <label> Number of people expected: </label>   
+            <input type="number" name="numberofpeople" size="3"/> <br> <br>
+			
+			<label> Employee Id: </label>       
+            <input type="text" name="employeeId" size="8" required> <br> <br>
+			
+            <label> Phone number:</label>
+            <input type="number" name="phone" size="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br> <br>   
+            
+			<label> Room:</label>
+			<select name="roomname" id="roomname">
+			  <option value="singleroom">Single room</option>
+			  <option value="doubleroom">Double room</option>
+			  <option value="twinroom">Twin room</option>
+			  <option value="deluxeroom">Deluxe room</option>
+			  <option value="suite">Suite</option>
+			</select>
+			
+			<br><br>
+			
+			<label> Duration: </label>
+			<input type="number" name="duration"/> <br> <br> 
+			
+			<hr>
+			
+			<input type="reset" value="Reset" class="d2" style="margin-left: 100px; margin-bottom:20px;">
+			<br>
+			
+			<button onclick="openForm()" id=d2 style="margin-left: 90px;">Book Room</button>
+		
+        </form>
+	</div>
+	
+	<!--
+	<div class="rcard",id="rcard">
+	   <h2>Room Card</h2>
+    	<h4><b>From-date</b></h4>
+	    <div class="container">
+			<input type="text" id="fdate"/>
+	    </div>
+		<h4><b>To-date</b></h4>
+	    <div class="container">
+			<h4 id="tdate"><b>Date</b></h4> 	
+	    </div>
+		<h4><b>Purpose</b></h4>
+	    <div class="container">
+			<h4 id="purp"><b>Purpose</b></h4> 	
+	    </div>
+		<input type="submit" value="Edit" class="d2" style=" background-color: #000000;  color: white; margin-left: 130px; margin-bottom:20px;">
+		<input type="submit" value="Delete" class="d2" style=" background-color: #000000;  color: white;">
+	</div>
+	-->
+	
+	<script>
+
+		function openForm() 
+		{
+			
+			/*
+			//document.getElementById("fdate").innerHTML = x;
+			
+			//document.getElementById("rcard").style.display = "block";
+			
+			var ph = document.getElementById("phone").value;
+			var pn = /(0|91)?[789][0-9]{9}/;
+			if(pn.test(ph) == false)
+			{
+				alert("Not a valid phone number");
+				booking.phone.focus();
+				//return false;
+			}
+			
+			var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+			 
+			*/
+			
+			var x = document.getElementById("fromdate").value;
+			var y = document.getElementById("todate").value;
+			var z = document.getElementById("purpose").value;
+				
+			document.write("<h4><b>From-date</b></h4> "+x);
+			document.write("<br>");
+			document.write("<h4><b>To-date</b></h4> "+y);
+			document.write("<br>");
+			document.write("<h4><b>Purpose</b></h4> "+z);
+			
+			
+		}
+		
+		
+		
+		
+	</script>
+	
+    </body>
+</html>
