@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		
+		<link rel="stylesheet" href="style.css">
+		
+		<title>
+			Online Room Booking
+		</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+	
+	</head>
+	<body>
+	<div id="d1">
+        <h2>Room Booking Form</h2><br>
+        
+        <form name ="booking" style=" width: 300px; margin: 0 auto;">
+    
+			<label>From-date</label> 
+			<input type="date" id="fromdate" name="fromdate" required> <br> <br>
+			
+			<label>To-date</label>
+			<input type="date" id="todate" name="todate" required> <br> <br>
+			
+            <label> Purpose </label>       
+            <input type="text" id="purpose" name="purpose" size="28" required> <br> <br>
+			
+            <label> Number of people expected: </label>   
+            <input type="number" name="numberofpeople" size="3"/> <br> <br>
+			
+			<label> Employee Id: </label>       
+            <input type="text" name="employeeId" size="8"> <br> <br>
+			
+            <label> Phone number:</label>
+            <input type="number" name="phone" size="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> <br> <br>   
+            
+			<label> Room:</label>
+			<select name="roomname" id="roomname">
+			  <option value="singleroom">Single room</option>
+			  <option value="doubleroom">Double room</option>
+			  <option value="twinroom">Twin room</option>
+			  <option value="deluxeroom">Deluxe room</option>
+			  <option value="suite">Suite</option>
+			</select>
+			
+			<br><br>
+			
+			<label> Duration: </label>
+			<input type="number" name="duration"/> <br> <br> 
+			
+			<hr>
+			
+			<button class="d2" id="btn" style="margin-left: 90px;">Book Room</button>
+			<br>
+			<input type="reset" value="Reset" class="d2" style="margin-left: 100px; margin-bottom:20px;">
+			<br>
+			
+		
+        </form>
+	</div>
+	
+	<!--
+	<div class="rcard",id="rcard">
+	   <h2>Room Card</h2>
+    	<h4><b>From-date</b></h4>
+	    <div class="container">
+			<input type="text" id="fdate"/>
+	    </div>
+		<h4><b>To-date</b></h4>
+	    <div class="container">
+			<h4 id="tdate"><b>Date</b></h4> 	
+	    </div>
+		<h4><b>Purpose</b></h4>
+	    <div class="container">
+			<h4 id="purp"><b>Purpose</b></h4> 	
+	    </div>
+		<input type="submit" value="Edit" class="d2" style=" background-color: #000000;  color: white; margin-left: 130px; margin-bottom:20px;">
+		<input type="submit" value="Delete" class="d2" style=" background-color: #000000;  color: white;">
+	</div>
+	-->
+	
+	<script>
+	
+			$(document).ready(function(){
+			
+			$('#btn').click(function(){
+			
+			
+			   var x = $('#fromdate').val(); 
+			   var y = $('#todate').val(); 
+			   var z = $('#purpose').val(); 
+			   
+			   //$("fdate").text(x);
+			   alert("Room card\nFrom date: "+x+"\nTo-date: "+y+"\nPurpose: "+z);
+			
+			});
+		
+		});
+		
+	</script>
+	
+    </body>
+</html>

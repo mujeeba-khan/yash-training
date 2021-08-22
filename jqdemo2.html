@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>
+		JQuery demo2
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.r{
+			background:green;
+			width:20%;
+			color:white;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+
+				$('li:even').addClass("r");
+				alert("Workinggg..");
+				
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<h3>---Fruits---</h3>
+	<ul>
+		<li>Mango</li>
+		<li>Apple</li>
+		<li>Kiwi</li>
+		<li>Banana</li>
+		<li>Orange</li>
+	</ul>
+
+
+</body>
+</html>

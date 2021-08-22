@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({
+      left: '250px',
+      //opacity: '0.5',
+      height: '200px',
+      width: '200px'
+    });
+  });
+});
+</script> 
+</head>
+<body>
+
+<button>Start Moving</button>
+
+<p></p>
+
+<div style="height:100px;width:100px;position:absolute;">
+	<img src="ball.jpg"/>
+</div>
+
+</body>
+</html>

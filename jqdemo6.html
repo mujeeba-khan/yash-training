@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>
+		JQuery demo2
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.red{
+			color:white;
+			background:red;
+			padding:0px 10px;
+		}
+		.green{
+			color:white;
+			background:green;
+			padding:0px 10px;
+		}
+		.orange{
+			color:white;
+			background:orange;
+			padding:0px 10px;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('#status').keyup(function(){
+			
+				var len = $('#status').val().length;
+				if(len<=4){
+					$('.first').text("Weak password");
+					$('.first').addClass('red');
+					$('.first').removeClass('green');
+					$('.first').removeClass('orange');
+				}
+				
+				else if(len<=8){
+					$('.first').text("Good password");
+					$('.first').addClass('orange');
+					$('.first').removeClass('green');
+					$('.first').removeClass('red');
+				}
+				
+				else{
+					$('.first').text("Strong password");
+					$('.first').addClass('green');
+					$('.first').removeClass('red');
+					$('.first').removeClass('orange');
+				}
+				
+			});	
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<form>
+	
+		Password:  <input type="password" id="status"/>&nbsp;<span class="first"></span>
+
+	</form>
+
+</body>
+</html>

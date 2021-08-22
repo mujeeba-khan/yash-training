@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>
+		JQuery demo
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("button").click(function(){
+			
+				$("h3").hide();
+				//$("#q1").hide();
+				$(".q2").hide();
+				alert("Workinggg..");
+				$("#q3").hide(2000);
+			});
+		
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<h3>Heyyyy...How z u doing...</h3>
+	<p id="q1">Hello...welcome to JQuery..</p>
+	<h4 class="q2">Hello people</h4>
+	<h5 id="q3">Its raining</h5>
+	<button>Click me</button>
+
+</body>
+</html>

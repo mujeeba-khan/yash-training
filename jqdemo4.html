@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>
+		JQuery demo2
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		p{
+			background:purple;
+			width:20%;
+			color:white;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('p').click(function(){
+			
+				$(this).fadeOut(2000);
+				
+			});	
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<h3>---Fade out---</h3>
+	
+	<p>This is 1st p tag</p>
+	<p>This is 2nd p tag</p>
+	<p>This is 3rd p tag</p>
+	<p>This is 4th p tag</p>
+	<p>This is 5th p tag</p>
+	<p>This is 6th p tag</p>
+	<p>This is 7th p tag</p>
+
+
+</body>
+</html>

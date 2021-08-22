@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>
+		JQuery demo3
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.r{
+			background:red;
+			width:20%;
+			color:white;
+		}
+		.b{
+			background:black;
+			width:20%;
+			color:white;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+
+				$('li:first').addClass("r");
+				$('li:last').addClass("b");
+				alert("Workinggg..");
+				
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<h3>---Students---</h3>
+	<ul>
+		<li>101 Payal CoreJava 900</li>
+		<li>102 Komal CoreJava 800</li>
+		<li>103 Aditi CoreJava 700</li>
+		<li>104 Dhruv CoreJava 600</li>
+		<li>105 Ajay CoreJava 500</li>
+	</ul>
+
+
+</body>
+</html>

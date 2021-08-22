@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>
+		JQuery demo2
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		p{
+			background:maroon;
+			width:20%;
+			height:10%;
+			color:white;
+			display:none;
+			padding:10;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('#show').click(function(){
+			
+				$("p:contains('William')").fadeIn(2000);
+				$("p:contains('Kalpana')").fadeIn(2000);
+				$("p:contains('Sam')").fadeIn(2000);
+				//$("p:contains('Anjali')").fadeIn(2000);
+				//$("p:contains('Faiz')").fadeIn(2000);
+				//$("p:contains('Sonal')").fadeIn(2000);
+				
+			});	
+		});
+		
+		
+	</script>
+</head>
+<body>
+
+	<h3>---Fade in with contains---</h3>
+	
+	<p>101  Yash  Anjali  90%</p>
+	<p>102  Yash  Sam  75%</p>
+	<p>103  Yash  Kalpana  80%</p>
+	<p>201  Impetus  William  20%</p>
+	<p>202  Impetus  Sonal  50%</p>
+	<p>203  Impetus  Faiz  95%</p>
+	
+	<input type="submit" value="show" id="show"/>
+
+
+</body>
+</html>
