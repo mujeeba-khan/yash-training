@@ -11,6 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
+import com.yash.emshibernate.model.Address;
 import com.yash.emshibernate.model.Employee;
 
 
@@ -29,6 +30,9 @@ public class EmployeeApp {
 		Transaction t = session.beginTransaction(); 
 
 		Employee e = new Employee();
+		Address a = new Address("Lane-187","NewYork City","NewYork State","USA");
+		Address a1 = new Address("Lane-203","NewYork City","NewYork State","USA");
+		Address a2 = new Address("Lane-109","NewYork City","NewYork State","USA");
 		
 		/*
 		//done using create in hbm2ddl
@@ -37,30 +41,32 @@ public class EmployeeApp {
 		e.setSalary(1237891);
 		e.setDesignation("DSG#02");
 		e.setDepartment("IT");
-		e.setAddress("USA");
+		e.setAddress(a);
 		session.save(e);
 		*/
 		
 		/*
-		//inserting multiple records using update in hbm2ddl
+		//-----inserting multiple records-----
+		// using update in hbm2ddl
 		 
 		e.setName("William");
 		e.setSalary(1237341);
 		e.setDesignation("DSG#09");
 		e.setDepartment("Testing");
-		e.setAddress("USA");
+		e.setAddress(a1);
 		session.save(e);
 		
 		e.setName("Jenny");
 		e.setSalary(124341);
 		e.setDesignation("DSG#03");
 		e.setDepartment("Testing");
-		e.setAddress("USA");
+		e.setAddress(a2);
 		session.save(e);
 		*/
 		
 		
-		//updating records in the table
+		
+		//----updating records in the table----
 		//done using update in hbm2ddl
 		
 		e.setId(1);
@@ -68,34 +74,44 @@ public class EmployeeApp {
 		e.setSalary(1237891);
 		e.setDesignation("DSG#02");
 		e.setDepartment("Testing");
-		e.setAddress("USA");
+		e.setAddress(a);
 		session.update(e);
 		
 		
 		/*
-		//deleting records from the table
+		//----deleting records from the table----
 		//done using update in hbm2ddl
 		
 		e.setId(3);
 		session.delete(e);
 		*/
 		
+		System.out.println("\nSuccessfully saved\n"); 
+		
+		//----retrieving objects using session.get()----
+		e = (Employee) session.get(Employee.class, 1); 
+		System.out.println(e);
+		
+		e = (Employee) session.get(Employee.class, 2); 
+		System.out.println(e);
+		
+		e = (Employee) session.get(Employee.class, 3); 
+		System.out.println(e);
 		
 		t.commit();
-		System.out.println("\nSuccessfully saved");  
-		
-		
-		//Retrieve and displaying a particular employee details.
+		 
+		/*
+		//----Retrieve and displaying employee details using HQL----
 		
 		session.beginTransaction();
 		
-		//Query<Employee> query1 = session.createQuery("FROM Employee");
+		//Query query1 = session.createQuery("FROM Employee");
 		//List<Employee> elist = query1.list();
 		
-		//Query<Employee> query1 = session.createQuery("FROM Employee E WHERE E.id = 1");
+		//Query query1 = session.createQuery("FROM Employee E WHERE E.id = 1");
 		//List<Employee> elist = query1.list();
 		
-		//Query<Employee> query1 = session.createQuery("FROM Employee E WHERE E.id > 1 ORDER BY E.salary DESC");
+		//Query query1 = session.createQuery("FROM Employee E WHERE E.id > 1 ORDER BY E.salary DESC");
 		//List<Employee> elist = query1.list();
 		
 		String hql = "FROM Employee E WHERE E.id = :empid";
@@ -118,7 +134,7 @@ public class EmployeeApp {
 		session.getTransaction().commit();
 		
 
-		
+		*/
 	}
 
 }

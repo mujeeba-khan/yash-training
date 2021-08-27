@@ -12,11 +12,12 @@
     
   <!-- <property name="hibernate.hbm2ddl.auto">validate</property> -->
   
-   <property name="hibernate.hbm2ddl.auto">update</property> 
+   <property name="hibernate.hbm2ddl.auto">update</property>   
     
   <!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
    
     <mapping class = "com.yash.emshibernate.model.Employee"/>
+    <mapping class = "com.yash.emshibernate.model.Address"/>
     
   </session-factory>
 </hibernate-configuration>

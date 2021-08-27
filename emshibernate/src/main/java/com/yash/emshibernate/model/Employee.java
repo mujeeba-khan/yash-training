@@ -6,6 +6,7 @@ package com.yash.emshibernate.model;
  */
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,15 +31,15 @@ public class Employee
 	@Column (name = "Designation")
 	private String designation;
 	
-	@Column (name = "Address")
-	private String address;
+	@Embedded
+	private Address address;
 	
 	public Employee() {
 		super();
 	}
 
 
-	public Employee(int id, String name, double salary, String department, String designation, String address) {
+	public Employee(int id, String name, double salary, String department, String designation, Address address) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -74,7 +75,7 @@ public class Employee
 	}
 
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
@@ -104,7 +105,7 @@ public class Employee
 	}
 
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
