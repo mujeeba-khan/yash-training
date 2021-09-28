@@ -1,26 +1,34 @@
 package com.yash.emsjpa.repository;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yash.emsjpa.model.Employee;
 
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 class EmployeeRepositoryTest {
 
-	@Autowired
-	EmployeeRepository employeeRepository;
-	
+	 @Autowired
+	 EmployeeRepository employeeRepository;
+	 
 	 @Test
-	    public void whenFindingDataFromRepository_thenFindingDataShouldBeSuccessful() 
+	 @Transactional
+	 public void whenSave_shouldReturn_listSizeGreaterThanZero()
 	 {
-		   List<Employee> employees = new ArrayList<Employee>();
-		   employeeRepository.findAll().forEach(employees::add);
-	       assertThat(employees.size()).isEqualTo(1);
+		 Employee emp = new Employee(0,"TestName",012,"TestDept","TestDesig","TestAddress");
+		 employeeRepository.save(emp);
+		 assertEquals(employeeRepository.findAll().size(),1);
 	 }
+	 
+	 
 }

@@ -18,8 +18,8 @@ public class EmployeeDaoImpl implements EmployeeDao
 
 	public EmployeeDaoImpl() {}
 	
-	public EmployeeDaoImpl(DataSource dataSoruce) {
-		jdbcTemplateObj = new JdbcTemplate(dataSoruce);
+	public EmployeeDaoImpl(DataSource dataSource) {
+		jdbcTemplateObj = new JdbcTemplate(dataSource);
 	}
 
 	
